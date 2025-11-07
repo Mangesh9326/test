@@ -1,0 +1,101 @@
+Traveler_ID,Age,Gender,Preferred_Destination,Travel_Reason,Income_Level,Travel_Frequency_per_Year,Average_Spend_USD
+1,18,Other,Amsterdam,Family,High,6,8597
+2,62,Male,Tokyo,Adventure,High,12,6753
+3,34,Male,Prague,Honeymoon,High,7,5679
+4,21,Male,Paris,Family,Medium,9,7804
+5,34,Male,San Francisco,Adventure,High,10,3425
+6,61,Other,Prague,Adventure,High,2,1119
+7,52,Female,Dubai,Business,High,7,6082
+8,28,Other,San Francisco,Business,High,6,8705
+9,34,Female,New York,Adventure,Low,4,5514
+10,30,Other,Bangkok,Business,Medium,4,9844
+11,28,Other,Rome,Cultural,High,1,7935
+12,57,Male,Tokyo,Leisure,Low,12,8524
+13,65,Male,Bali,Business,High,9,5321
+14,30,Other,Rome,Leisure,High,5,3755
+15,28,Male,Toronto,Honeymoon,Medium,2,2434
+16,28,Male,Vienna,Leisure,Low,2,2933
+17,53,Male,Barcelona,Family,Low,7,1985
+18,60,Female,Tokyo,Family,Low,7,6150
+19,27,Female,Cape Town,Business,Low,7,6843
+20,51,Female,Bali,Honeymoon,High,5,9989
+21,63,Other,New York,Cultural,High,9,4550
+22,52,Male,Singapore,Adventure,Medium,11,666
+23,36,Other,Bali,Honeymoon,High,7,8214
+24,45,Male,Barcelona,Business,Low,9,2055
+25,43,Male,Cape Town,Honeymoon,High,5,3797
+26,54,Female,Singapore,Honeymoon,Medium,9,9566
+27,63,Female,New York,Business,High,7,9642
+28,25,Female,Rio de Janeiro,Business,Low,5,5710
+29,34,Male,Vienna,Adventure,Medium,2,5345
+30,30,Male,New York,Adventure,High,3,7863
+31,65,Other,Tokyo,Cultural,High,5,5879
+32,54,Other,Singapore,Adventure,High,1,6818
+33,50,Male,Dubai,Leisure,Medium,1,4003
+34,27,Other,New York,Business,Low,7,6092
+35,21,Female,London,Family,Low,4,5029
+36,36,Female,Barcelona,Cultural,High,5,4761
+37,46,Other,Bali,Cultural,Medium,6,3619
+38,24,Male,Barcelona,Leisure,High,3,7222
+39,30,Other,Cape Town,Business,Medium,12,3511
+40,49,Male,Barcelona,Adventure,Medium,3,3567
+41,43,Female,Bangkok,Honeymoon,Medium,1,4147
+42,53,Female,Barcelona,Leisure,Medium,5,7578
+43,22,Other,Tokyo,Leisure,Medium,9,5226
+44,50,Female,Moscow,Business,Low,4,2545
+45,62,Female,Vienna,Business,Low,1,8424
+46,40,Female,New York,Honeymoon,High,10,6487
+47,51,Male,Dubai,Honeymoon,Medium,4,8838
+48,61,Female,Tokyo,Leisure,Low,8,7260
+49,39,Other,Toronto,Honeymoon,Low,8,3512
+50,18,Other,Rome,Honeymoon,Medium,9,5754
+51,18,Other,Moscow,Adventure,Medium,11,537
+52,32,Male,Toronto,Cultural,Low,1,3665
+53,61,Male,Rome,Family,High,8,4986
+54,26,Other,Dubai,Adventure,Low,11,6158
+55,50,Female,Tokyo,Business,Medium,9,7780
+56,37,Other,Dubai,Business,Medium,5,6551
+57,37,Male,Vienna,Leisure,Low,2,7323
+58,33,Male,Sydney,Family,High,6,3418
+59,52,Male,Rio de Janeiro,Adventure,Low,12,7389
+60,39,Female,New York,Leisure,Medium,6,1695
+61,28,Female,Toronto,Family,Low,9,915
+62,47,Male,Dubai,Family,Medium,1,7443
+63,25,Male,Dubai,Leisure,High,10,2431
+64,58,Other,Cape Town,Family,Medium,11,4092
+65,63,Other,Moscow,Cultural,High,9,2508
+66,61,Other,Cape Town,Cultural,High,11,7846
+67,58,Female,Moscow,Cultural,Low,1,9392
+68,63,Male,Singapore,Business,Medium,10,1912
+69,32,Male,Istanbul,Business,Medium,1,1262
+70,33,Other,Rome,Adventure,Medium,8,2804
+71,25,Female,Rio de Janeiro,Adventure,Low,2,1933
+72,51,Female,San Francisco,Adventure,Low,6,1332
+73,37,Female,Moscow,Honeymoon,High,8,1836
+74,32,Other,Barcelona,Honeymoon,Low,5,9845
+75,57,Female,Paris,Leisure,Low,6,3024
+76,28,Other,Paris,Family,Medium,11,5288
+77,40,Female,Singapore,Family,Low,4,1130
+78,64,Female,Toronto,Business,High,8,4295
+79,56,Other,Toronto,Business,Medium,7,5007
+80,44,Female,Cape Town,Adventure,Medium,4,4276
+81,53,Male,Paris,Business,Low,3,2748
+82,25,Other,Vienna,Business,Low,2,1752
+83,47,Male,Prague,Adventure,Medium,3,1321
+84,56,Male,New York,Leisure,Low,1,7360
+85,53,Other,Bangkok,Cultural,Medium,2,5053
+86,61,Female,Barcelona,Leisure,Low,10,5076
+87,19,Other,Bali,Adventure,Medium,6,9988
+88,64,Other,Cape Town,Adventure,Low,1,4526
+89,28,Other,Singapore,Family,Low,2,1677
+90,27,Other,London,Leisure,Medium,2,7275
+91,58,Other,Prague,Leisure,High,2,2762
+92,24,Female,Amsterdam,Cultural,Low,3,5761
+93,25,Male,New York,Family,Medium,6,995
+94,27,Male,London,Business,High,3,3748
+95,27,Other,Sydney,Leisure,High,10,7743
+96,57,Female,London,Family,Medium,7,3177
+97,65,Female,Barcelona,Leisure,Low,7,3491
+98,51,Other,Cape Town,Honeymoon,Medium,8,3609
+99,22,Other,Istanbul,Leisure,High,8,5037
+100,28,Female,Rio de Janeiro,Cultural,High,4,7553
