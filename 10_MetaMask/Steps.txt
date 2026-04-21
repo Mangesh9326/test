@@ -1,0 +1,24 @@
+Step 1: Download MetaMask Chrome extension
+Step 2: Create a new wallet
+Step 3: Select Use Secret Recovery Phrase
+Step 4: Set MetaMask password
+Step 5: Save the Secret Recovery Phrase
+Step 6: Confirm the Secret Recovery Phrase
+Step 7: Navigate to Networks and enable test networks
+Step 8: Select Sepolia as the test network
+Step 9: Go to Google Ethereum Sepolia Faucet and sign in
+Step 10: Go to MetaMask and click Receive to view wallet addresses
+Step 11: Copy the Ethereum Address
+Step 12: Paste the wallet address in Google Ethereum Sepolia Faucet
+step 13: View the added tokens in MetaMask
+Step 14: Go to Remix IDE and connect wallet
+Step 15: Compile the smart contract in Remix IDE
+Step 16: Deploy the contract
+Step 17: Go to the deployed contract and test the functions
+Step 18: Copy the contract address
+Step 19: Create the DApp (Paste the copied contract address in app.js)
+Step 20: Run the DApp locally using the Live Server extension in Visual Studio Code
+Step 21: Get the stored value
+Step 22: Set the new value
+Step 23: Get the updated value
+Step 24: View the updated balance and activity in MetaMask

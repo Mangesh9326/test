@@ -1,0 +1,125 @@
+Step 1: Connect node 1 (5001) to node 2 (5002)
+Method: POST
+
+http://localhost:5001/connect_nodes
+
+
+Body (JSON):
+{
+  "nodes": [
+    "http://127.0.0.1:5002"
+  ]
+}
+
+
+=========================================================================
+
+Step 2: Connect node 2 (5002) to node 1 (5001)
+Method: POST
+
+http://localhost:5002/connect_nodes
+
+
+Body (JSON):
+{
+  "nodes": [
+    "http://127.0.0.1:5001"
+  ]
+}
+
+
+=========================================================================
+
+Step 3: Get chain of node 1 (5001)
+Method: GET
+
+http://localhost:5001/get_chain
+
+
+=========================================================================
+
+Step 4: Add transaction on node 1 (5001)
+Method: POST
+
+http://localhost:5001/add_transaction
+
+Body (JSON):
+{
+  "sender": "Bob",
+  "receiver": "Alice",
+  "amount": "100"
+}
+
+=========================================================================
+
+Step 5: Mine block on node 1 (5001)
+Method: GET
+
+http://localhost:5001/mine_block
+
+=========================================================================
+
+Step 6: Get chain of node 1 (5001)
+Method: GET
+
+http://localhost:5001/get_chain
+
+=========================================================================
+
+Step 7: Get chain of node 2 (5002)
+Method: GET
+
+http://localhost:5002/get_chain
+
+=========================================================================
+
+Step 8: Replace chain on node 2 (5002)
+Method: GET
+
+http://localhost:5002/replace_chain
+
+=========================================================================
+
+Step 9: Add transaction on node 2 (5002)
+Method: POST
+
+http://localhost:5002/add_transaction
+
+
+Body (JSON):
+{
+  "sender": "Alice",
+  "receiver": "Carl",
+  "amount": "50"
+}
+
+=========================================================================
+
+Step 10: Mine block on node 2 (5002)
+Method: GET
+
+http://localhost:5002/mine_block
+
+=========================================================================
+
+Step 11: Get chain of node 2 (5002)
+Method: GET
+
+http://localhost:5002/get_chain
+
+=========================================================================
+
+Step 12: Get chain of node 1 (5001)
+Method: GET
+
+http://localhost:5001/get_chain
+
+=========================================================================
+
+Step 13: Replace chain on node 1 (5001)
+Method: GET
+
+http://localhost:5001/replace_chain
+
+
+=========================================================================
