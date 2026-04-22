@@ -1,0 +1,26 @@
+﻿Prac-4  [Cloud DataFlow Pipeline]
+
+
+1. Go to Dataflow in searchbar
+2. Select Jobs        
+3. Enable Dataflow and related APIs
+        3.1. Select FIX button for all 
+        3.2. Wait till done
+        3.3. Select Get Started
+4. google cloud shell - local
+4.0. Install Gcloud CLI installer
+        4.1. gcloud init
+4.2. gcloud config set project ( project name )
+4.3. gcloud auth application-default login
+        4.3.1. select all options while authentication
+4.4. pip install apache-beam[gcp]
+4.5. gcloud storage buckets create gs://( bucket name ) --default-storage-class=STANDARD
+
+
+5. python -m apache_beam.examples.wordcount --runner DataflowRunner --project ( project name ) --region asia-south2 --input gs://dataflow-samples/shakespeare/kinglear.txt --output gs://(bucket name)/results/outputs --temp_location gs://( bucket name )/tmp
+
+
+6. Check Jobs sections for success message 
+6.1. keep cmd running till success takes 5-10mins
+7. View output in cloud storage bucket
+        7.1. Check Authenticated URL for output

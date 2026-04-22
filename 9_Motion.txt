@@ -1,0 +1,134 @@
+Driver (if needed): https://www.pololu.com/file/0J14/pololu-cp2102-windows-220616.zip
+
+
+1. ADD Device
+   Select "ESP32"
+   Select "ESP32 Dev Module"
+   press "Continue"
+   Rename Device example "Motion"
+
+
+2. Create Thing
+   Rename Thing: Motion
+   click "+ Variable"
+   Select "Boolean"
+   	Variable name: Motion
+	Read & write
+	On change
+   Click "Create
+   
+
+3. Create Dashboard
+   Rename Dashboard: Motion
+   Click "EDIT"
+   Click "ADD"
+   Add "STATUS"
+   Click "Link Variable"
+   Select variable "Motion"
+   	Select  Status Labels → Icons
+   Click "Done"
+
+4. Go TO DEVICES
+   Open "Motion"
+   Click "CHANGE NETWORK"
+   Click "CREATE NEW"
+   Set WIFI Credentials and Secret Key
+   Click "GO TO SKETCH"
+
+5. Open ARDUINO IDE
+   BOARDS MANAGER: ESP32    (esp32 by Espressif Systems)
+   LIBRARY MANAGER: ArduinoIoTCloud    (ArduinoloTCloud by Arduino)
+   Click "Cloud Sketchbook"
+   Sign-in Account
+   PULL the Sketchbook 
+   Click 3 dots and open in new Window
+   Paste Code
+
+
+6. Code:
+#include "arduino_secrets.h"
+#include "thingProperties.h"
+
+#define PIR_PIN 4
+#define LED_PIN 2
+
+// Forward declaration
+void onMotionChange();
+
+// Track previous state
+bool lastMotionState = false;
+
+void setup() {
+  Serial.begin(9600);
+  delay(1500);
+
+  pinMode(PIR_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+
+  initProperties();
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  Serial.println("PIR Motion Sensor Started...");
+}
+
+void loop() {
+  ArduinoCloud.update();
+
+  // Read PIR sensor
+  bool currentState = digitalRead(PIR_PIN);
+
+  // Only act if state changes
+  if (currentState != lastMotionState) {
+    lastMotionState = currentState;
+
+    // Update cloud variable
+    Motion = currentState;
+
+    // Control LED
+    digitalWrite(LED_PIN, currentState ? HIGH : LOW);
+
+    if (currentState) {
+      Serial.println("Motion detected!");
+    } else {
+      Serial.println("No motion");
+    }
+  }
+}
+
+/*
+  Runs if value is changed from dashboard (optional)
+*/
+void onMotionChange() {
+  // Optional: you could control LED from cloud here if needed
+}
+
+__________________________________________________
+
+
+7. Connect ESP32 to CPU, connect Sensor OUT -> D4
+
+
+PIR Motion Sensor | Pin ESP32 Pin 
+---------------------------------------
+    VCC (+)       |   3V3 
+  OUT (Signal)    |  D4 (GPIO4)
+  GND (–)         |  GND 
+
+
+
+8. Click "File"
+   Click "Preferences"
+   Additional boards manager URLs: 
+		https://dl.espressif.com/dl/package_esp32_index.json
+   Click "OK"
+
+
+9. Tools → Board and select ESP32 Dev Module
+   Tools → Port and select the correct COM port (COM3/COM5)
+
+
+10. Upload the code by clicking "→"
+11. Tools → Serial Monitor

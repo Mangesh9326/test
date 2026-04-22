@@ -1,0 +1,63 @@
+Pub/Sub
+
+1. Create project
+   Give project name
+   click "Create"
+
+2. Navigate to pub/sub by search bar
+
+3. Create Topic-1
+   Select Topics from sidebar
+   click "Create topic"
+   Give Topic-ID "Topic-1" and create
+
+4. Create Schema-1
+   Select Schema from sidebar
+   click "Create schema"
+   Give Schema-ID "Schema-1" and create
+
+4. Create Topic-2 with Schema
+   Select Topics from sidebar
+   click "Create topic"
+   Give Topic-ID "Topic-2"
+   select "Use a schema"
+   select Schema  -> select created Schema-1
+   and create
+
+5. Create a schema revision
+   Go to Schema
+   open Schema-1
+   Click "Create revision"
+   Click "Commit"
+
+
+6. Roll back to previous revision
+   Click on 3 Dots
+   Click "Roll back to revision"
+
+
+
+
+7. Activate Cloud Shell
+
+gcloud pubsub schemas list
+gcloud pubsub topics list
+gcloud pubsub topics describe Topic1
+gcloud pubsub schemas describe Schema1
+
+
+
+8. Publish the Message
+    Open Topic
+    Open “Message tab”
+    Click “publish message”
+    Type a message like “Hello World”
+    Click” Publish”
+
+
+
+7. Pull the message
+    select the Topic
+    pull the message
+
+   

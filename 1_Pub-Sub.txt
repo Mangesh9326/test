@@ -1,0 +1,31 @@
+﻿Prac-1  [Pub-Sub]
+
+
+1-Create a new topic (keep default settings)
+2-Create a new topic using a schema
+        2.1-Tick (Use a Schema)
+        2.2- Create a new Schema
+3-Create a revision for Schema
+4-Rollback to previous revision
+5- delete the schema (optional)
+
+
+6-gcloud shell terminal 
+6.1-gcloud pubsub topics list (list all topics)
+6.2-gcloud pubsub subscriptions list ( list all subscripts)
+6.3-gcloud pubsub schemas list ( list all schema)
+6.4-gcloud pubsub topics describe topic-2 (describe followed by topic name )
+6.5-gcloud pubsub schemas describe schema-2(followed by schema name )
+
+
+Prac-1.1  [Push-Pull msg]
+1-Create a new topic (keep default settings)
+2-Go to topics -> messages ->
+        2.1-Publish message
+        2.2-Pull the message (wait for 5sec)
+
+
+Prac-1.2  [Delete the proj]
+1-Shutdown Project
+2-Type Project ID 
+        2.1-Shutdown Anyway

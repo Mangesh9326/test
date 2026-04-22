@@ -1,0 +1,28 @@
+﻿Prac-2  [Artifact Registry]
+
+1. Navigate to Artifact Registry and create a new repository (need to enable)
+2. Create a new repository
+3. Give Details 
+        Name
+        Format -> Generic
+
+4. Add location -> asia-south (mumbai)
+4.1 Delete Artifacts
+4.2 Cleanup policies
+        1 Name the policy (p2-cleanup)
+        2 Create New Policy
+        3 Keep Most Recent Versions (Count = 1)
+        4 Create Repository
+5. google cloud shell - local
+5.1 Install Gcloud CLI installer
+
+gcloud init
+gcloud config set project p2-artifact-registry ( project name )
+gcloud artifacts repositories list
+gcloud config set artifacts/repository p2-repo ( repo name )
+gcloud config set artifacts/location asia-south1 ( selected location )
+gcloud artifacts generic upload --source=”PATH“ --package=demo    --version=1.0.0 (filename=temp.txt)
+gcloud artifacts repositories list
+gcloud artifacts files list
+gcloud artifacts files download --destination=. "demo:1.0.0:temp.txt"
+type "filename" (eg: cat "demo%3A1.0.0%3Atemp.txt")

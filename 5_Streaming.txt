@@ -1,0 +1,92 @@
+﻿Prac-5  [Cloud DataFlow Pipeline]
+
+
+1-google cloud shell - local
+1.0- Install Gcloud CLI installer
+        1.1-gcloud init
+1.2-gcloud config set project ( project name )
+1.3-gcloud storage buckets create gs://( bucket name ) 
+2-Enable Pub/Sub API
+3-Navigate to IAM & Admin / Service Accounts
+        3.1-Go to service accounts
+        3.2-Create a new service account
+                3.2.1-Add details
+4-Create a new auth key 
+        4.1-Actions -> Manage Keys -> Add Key -> JSON key
+5-Grant storage permissions for the service account
+        4.5-Permissions -> Manage Access-> Storage Admin
+6-Run code in python
+        6.1-pip install google-cloud-storage google-cloud-pubsub faker
+        6.2-Change the credentials variable & Bucket Name before running
+        6.3-Check path if unicode error put \\ in path
+
+
+
+
+
+
+
+from google.cloud import storage
+from google.oauth2 import service_account
+import time
+import json
+from faker import Faker
+import random
+
+
+# Initialize Faker
+fake = Faker()
+
+
+# Authenticate using service account
+credentials = service_account.Credentials.from_service_account_file(“PATH TO JSON KEY DOWNLOADED”
+)
+
+
+# Initialize Cloud Storage client
+storage_client = storage.Client(credentials=credentials)
+
+
+bucket_name = "BUCKETNAME"
+bucket = storage_client.bucket(bucket_name)
+
+
+def generate_iot_data():
+    """Generates mock IoT data"""
+    data = {
+        "device_id": fake.uuid4(),
+        "timestamp": fake.date_time_this_year().isoformat(),
+        "temperature": round(random.uniform(20.0, 30.0), 2),
+        "humidity": round(random.uniform(30.0, 70.0), 2),
+        "pressure": round(random.uniform(1000, 1050), 2),
+    }
+    return json.dumps(data)
+
+
+def upload_data_to_gcs(iot_data, filename):
+    """Uploads IoT data to Google Cloud Storage"""
+    blob = bucket.blob(filename)
+    blob.upload_from_string(iot_data, content_type="application/json")
+    print(f"Data uploaded to {filename}")
+
+
+# Streaming loop
+while True:
+    iot_data = generate_iot_data()
+
+
+    timestamp = time.time()
+    filename = f"iot_data_{timestamp}.json"
+
+
+    upload_data_to_gcs(iot_data, filename)
+
+
+    time.sleep(5)
+
+
+
+
+
+
+7-Check Bucket Authenticated URL for output

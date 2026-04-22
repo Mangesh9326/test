@@ -1,0 +1,134 @@
+Driver (if needed): https://www.pololu.com/file/0J14/pololu-cp2102-windows-220616.zip
+
+1. ADD Device
+   Select "ESP32"
+   Select "ESP32 Dev Module"
+   press "Continue"
+   Rename Device example "Temp"
+
+
+2. Create Thing
+   Rename Thing: Temp
+   click "+ Variable"
+   Select "Floating point number"
+   	Variable name: Temp
+	Read only
+	On change
+   Click "Create
+   
+
+3. Create Dashboard
+   Rename Dashboard: Temp
+   Click "EDIT"
+   Click "ADD"
+   Add "GUAGE"
+   Click "Link Variable"
+   Select variable "Temp"
+   Click "Done"
+
+4. Go TO DEVICES
+   Open "Temp"
+   Click "CHANGE NETWORK"
+   Click "CREATE NEW"
+   Set WIFI Credentials and Secret Key
+   Click "GO TO SKETCH"
+
+5. Open ARDUINO IDE
+   BOARDS MANAGER: ESP32    (esp32 by Espressif Systems)
+   LIBRARY MANAGER: DHT sensor library   (DHT sensor library by Adafruit)
+   Click "Cloud Sketchbook"
+   Sign-in Account
+   PULL the Sketchbook 
+   Click 3 dots and open in new Window
+   Paste Code
+
+
+6. Code:
+
+
+#include "arduino_secrets.h"
+#include "thingProperties.h"
+
+#include <DHT.h>
+
+#define DHTPIN 2        // GPIO2 (Change if needed)
+#define DHTTYPE DHT11   // DHT11 Sensor
+
+DHT dht(DHTPIN, DHTTYPE);
+
+// Forward declaration (important for IoT Cloud)
+void onTempChange();
+
+void setup() {
+  Serial.begin(9600);
+  delay(1500);
+
+  // IoT Cloud init
+  initProperties();
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  // Start DHT sensor
+  Serial.println("DHT11 Sensor Test...");
+  dht.begin();
+}
+
+void loop() {
+  ArduinoCloud.update();
+
+  static unsigned long lastRead = 0;
+
+  if (millis() - lastRead >= 2000) {
+    lastRead = millis();
+
+    // Read temperature
+    Temp = dht.readTemperature();
+
+    // Check if reading failed
+    if (isnan(Temp)) {
+      Serial.println("Failed to read from DHT sensor!");
+      return;
+    }
+
+    // Print temperature
+    Serial.print("Temperature: ");
+    Serial.print(Temp);
+    Serial.println(" °C");
+  }
+}
+
+/*
+  Runs if value is changed from dashboard (optional)
+*/
+void onTempChange() {
+  // Usually not needed for sensor (cloud → device)
+}
+
+
+__________________________________________________
+
+
+7. Connect ESP32 to CPU, connect Sensor OUT -> D2
+
+DHT11 Sensor  |   ESP32 Pin
+-------------------------------
+    VCC (+)   |      3V3
+  DATA / OUT  |       D2
+    GND (–)   |       GND
+
+
+8. Click "File"
+   Click "Preferences"
+   Additional boards manager URLs: 
+		https://dl.espressif.com/dl/package_esp32_index.json
+   Click "OK"
+
+
+9. Tools → Board and select ESP32 Dev Module
+   Tools → Port and select the correct COM port (COM3/COM5)
+
+
+10. Upload the code by clicking "→"
+11. Tools → Serial Monitor

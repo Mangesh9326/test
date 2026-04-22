@@ -1,0 +1,119 @@
+Driver (if needed): https://www.pololu.com/file/0J14/pololu-cp2102-windows-220616.zip
+
+1. ADD Device
+   Select "ESP32"
+   Select "ESP32 Dev Module"
+   press "Continue"
+   Rename Device example "Fire"
+
+
+2. Create Thing
+   Rename Thing: Fire
+   click "+ Variable"
+   Select "Boolean"
+   	Variable name: fire
+	Read & write
+	On change
+   Click "Create
+   
+
+3. Create Dashboard
+   Rename Dashboard: Fire
+   Click "EDIT"
+   Click "ADD"
+   Add "LED"
+   Click "Link Variable"
+   Select variable "fire"
+   	Select "Double LEDs"
+	Set  True → RED
+	Set  False → GREEN
+   Click "Done"
+
+4. Go TO DEVICES
+   Open "Fire"
+   Click "CHANGE NETWORK"
+   Click "CREATE NEW"
+   Set WIFI Credentials and Secret Key
+   Click "GO TO SKETCH"
+
+5. Open ARDUINO IDE
+   BOARDS MANAGER: ESP32    (esp32 by Espressif Systems)
+   LIBRARY MANAGER: ArduinoIoTCloud    (ArduinoloTCloud by Arduino)
+   Click "Cloud Sketchbook"
+   Sign-in Account
+   PULL the Sketchbook 
+   Click 3 dots and open in new Window
+   Paste Code
+
+
+6. Code:
+
+
+#include "arduino_secrets.h"
+#include "thingProperties.h"
+
+#define FLAME_PIN 4
+
+void setup() {
+  Serial.begin(9600);
+  delay(1500);
+
+  pinMode(FLAME_PIN, INPUT);
+
+  initProperties();
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  Serial.println("Flame sensor started!");
+}
+
+void loop() {
+  ArduinoCloud.update();
+
+  int flame = digitalRead(FLAME_PIN);
+
+  // Assuming LOW means flame detected
+  fire = (flame == LOW);
+
+  if (fire) {
+    Serial.println("Flame detected!");
+  } else {
+    Serial.println("No flame");
+  }
+
+  delay(2000);
+}
+
+void onFireChange() {
+  // Add your code here to act upon fire change (optional)
+}
+
+
+__________________________________________________
+
+
+7. Connect ESP32 to CPU, connect Sensor OUT -> D4
+
+Flame Sensor | Pin ESP32 Pin
+----------------------------------------
+    VCC (+)  |     3V3
+    DO       |   D4 (GPIO4)
+   GND (–)   |   GND
+
+
+
+8. Click "File"
+   Click "Preferences"
+   Additional boards manager URLs: 
+		https://dl.espressif.com/dl/package_esp32_index.json
+   Click "OK"
+
+
+9. Tools → Board and select ESP32 Dev Module
+   Tools → Port and select the correct COM port (COM3/COM5)
+
+
+10. Upload the code by clicking "→"
+11. Tools → Serial Monitor

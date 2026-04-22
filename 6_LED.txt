@@ -1,0 +1,101 @@
+Driver (if needed): https://www.pololu.com/file/0J14/pololu-cp2102-windows-220616.zip
+
+
+1. ADD Device
+   Select "ESP32"
+   Select "ESP32 Dev Module"
+   press "Continue"
+   Rename Device example "LED"
+
+
+2. Create Thing
+   Rename Thing: "LED"
+   click "+ Variable"
+   Select "Boolean"
+   	Variable name: LED
+	Read & Write
+	On change
+   Click "Create
+   
+
+3. Create Dashboard
+   Rename Dashboard: LED
+   Click "EDIT"
+   Click "ADD"
+   Add "PUSH BUTTON"
+   Click "Link Variable"
+   Select variable "LED"
+   Click "Done"
+
+4. Go TO DEVICES
+   Open "LED"
+   Click "CHANGE NETWORK"
+   Click "CREATE NEW"
+   Set WIFI Credentials and Secret Key
+   Click "GO TO SKETCH"
+
+5. Open ARDUINO IDE
+   BOARDS MANAGER: ESP32    (esp32 by Espressif Systems)
+   LIBRARY MANAGER: ArduinoIoTCloud    (ArduinoloTCloud by Arduino)
+   Click "Cloud Sketchbook"
+   Sign-in Account
+   PULL the Sketchbook 
+   Click 3 dots and open in new Window
+   Paste Code
+
+
+6. Code:
+
+
+#include "arduino_secrets.h" 
+#include "thingProperties.h" 
+ 
+#define LED_PIN 2   // ESP32 Built-in LED usually GPIO2 
+ 
+void setup() { 
+  Serial.begin(9600); 
+  delay(1500); 
+ 
+  // Initialize LED pin 
+  pinMode(LED_PIN, OUTPUT); 
+  digitalWrite(LED_PIN, LOW); 
+ 
+  // Initialize IoT Cloud properties 
+  initProperties(); 
+ 
+  // Connect to Arduino IoT Cloud 
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection); 
+ 
+setDebugMessageLevel(2); 
+ArduinoCloud.printDebugInfo(); 
+} 
+void loop() { 
+ArduinoCloud.update(); 
+// Write LED based on Cloud variable 
+digitalWrite(LED_PIN, LED); 
+} 
+/* 
+This function runs whenever iOT1 changes from dashboard 
+*/ 
+void onLEDChange() { 
+Serial.print("Cloud LED Value Changed: "); 
+Serial.println(LED); 
+digitalWrite(LED_PIN, LED); 
+}
+
+
+
+__________________________________________________
+
+7. Connect ESP32 to CPU
+
+8. Click "File"
+   Click "Preferences"
+   Additional boards manager URLs: 
+		https://dl.espressif.com/dl/package_esp32_index.json
+   Click "OK"
+
+9. Tools → Board and select ESP32 Dev Module
+   Tools → Port and select the correct COM port (COM3/COM5)
+
+10. Upload the code by clicking "→"
