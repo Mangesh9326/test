@@ -9,15 +9,19 @@
         3.3. Select Get Started
 4. google cloud shell - local
 4.0. Install Gcloud CLI installer
-        4.1. gcloud init
-4.2. gcloud config set project ( project name )
-4.3. gcloud auth application-default login
+
+gcloud init
+gcloud config set project ( project name )
+gcloud auth application-default login
+
         4.3.1. select all options while authentication
-4.4. pip install apache-beam[gcp]
-4.5. gcloud storage buckets create gs://( bucket name ) --default-storage-class=STANDARD
+
+pip install apache-beam[gcp]
+
+gcloud storage buckets create gs://cloud-dataflow-pipeline --default-storage-class=STANDARD
 
 
-5. python -m apache_beam.examples.wordcount --runner DataflowRunner --project ( project name ) --region asia-south2 --input gs://dataflow-samples/shakespeare/kinglear.txt --output gs://(bucket name)/results/outputs --temp_location gs://( bucket name )/tmp
+python -m apache_beam.examples.wordcount --runner DataflowRunner --project ( project name ) --region asia-south2 --input gs://dataflow-samples/shakespeare/kinglear.txt --output gs://(bucket name)/results/outputs --temp_location gs://( bucket name )/tmp
 
 
 6. Check Jobs sections for success message 

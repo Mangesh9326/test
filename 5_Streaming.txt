@@ -3,9 +3,12 @@
 
 1-google cloud shell - local
 1.0- Install Gcloud CLI installer
-        1.1-gcloud init
-1.2-gcloud config set project ( project name )
-1.3-gcloud storage buckets create gs://( bucket name ) 
+
+gcloud init
+gcloud config set project ( project name )
+gcloud storage buckets create gs://( bucket name ) 
+
+
 2-Enable Pub/Sub API
 3-Navigate to IAM & Admin / Service Accounts
         3.1-Go to service accounts
@@ -16,7 +19,10 @@
 5-Grant storage permissions for the service account
         4.5-Permissions -> Manage Access-> Storage Admin
 6-Run code in python
-        6.1-pip install google-cloud-storage google-cloud-pubsub faker
+
+
+pip install google-cloud-storage google-cloud-pubsub faker
+
         6.2-Change the credentials variable & Bucket Name before running
         6.3-Check path if unicode error put \\ in path
 
@@ -39,15 +45,14 @@ fake = Faker()
 
 
 # Authenticate using service account
-credentials = service_account.Credentials.from_service_account_file(“PATH TO JSON KEY DOWNLOADED”
-)
+credentials = service_account.Credentials.from_service_account_file(r"Json FILE")
 
 
 # Initialize Cloud Storage client
 storage_client = storage.Client(credentials=credentials)
 
 
-bucket_name = "BUCKETNAME"
+bucket_name = "BUCKET_NAME"
 bucket = storage_client.bucket(bucket_name)
 
 
@@ -83,8 +88,6 @@ while True:
 
 
     time.sleep(5)
-
-
 
 
 

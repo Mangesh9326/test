@@ -21,7 +21,7 @@ gcloud config set project p2-artifact-registry ( project name )
 gcloud artifacts repositories list
 gcloud config set artifacts/repository p2-repo ( repo name )
 gcloud config set artifacts/location asia-south1 ( selected location )
-gcloud artifacts generic upload --source=”PATH“ --package=demo    --version=1.0.0 (filename=temp.txt)
+gcloud artifacts generic upload --source="C:/Users/mange/Desktop/test/temp.txt" --package=demo --version=1.0.0
 gcloud artifacts repositories list
 gcloud artifacts files list
 gcloud artifacts files download --destination=. "demo:1.0.0:temp.txt"
