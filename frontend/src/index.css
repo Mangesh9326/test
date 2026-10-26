@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* Define our custom Enterprise Dark Theme colors directly in CSS */
+@theme {
+  --color-city-700: #334155;
+  --color-city-800: #1e293b;
+  --color-city-900: #0f172a;
+}
+
+body {
+  @apply bg-city-900 text-gray-100 antialiased overflow-hidden;
+}
+/* Custom Glass Effect Utility */
+.glass-panel {
+  @apply bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-xl shadow-lg;
+}
+
+/* Base Marker transition for hardware acceleration */
+.enterprise-marker {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+/* Hover Effect: Scale up and bring to front */
+.enterprise-marker:hover {
+  transform: scale(1.15) translateY(-2px);
+  z-index: 9999 !important;
+}
+
+/* Smooth Pulsing for Incidents */
+.pulse-marker {
+  animation: pulse-subtle 2s infinite;
+}
+
+@keyframes pulse-subtle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Optimized Ripple Effect */
+.ripple-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  animation: ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Enterprise Cluster Icon Styling */
+.custom-cluster-icon {
+  background: transparent;
+  border: none;
+}
+
+.enterprise-cluster {
+  background: rgba(15, 23, 42, 0.85); /* Slate 900 */
+  border: 2px solid #3b82f6; /* Blue 500 */
+  color: #f8fafc;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.enterprise-cluster:hover {
+  transform: scale(1.1);
+  border-color: #60a5fa;
+  box-shadow:
+    0 0 0 4px rgba(96, 165, 250, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.traffic-camera-fade {
+  animation: traffic-camera-fade 180ms ease-out both;
+}
+
+.traffic-camera-modal {
+  animation: traffic-camera-modal 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes traffic-camera-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes traffic-camera-modal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .traffic-camera-fade,
+  .traffic-camera-modal {
+    animation: none;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Leaflet Custom Enterprise Popup Overrides */
+.enterprise-popup .leaflet-popup-content-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.enterprise-popup .leaflet-popup-tip-container {
+  display: none !important;
+}
+.enterprise-popup .leaflet-popup-content {
+  margin: 0 !important;
+}
+
+@keyframes user-location-pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.8;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,95 @@
+PHASE 0
+Hospital Department Foundation
+        ↓
+PHASE 1
+Hospital Database + Mumbai Hospital Data
+        ↓
+PHASE 2
+Hospital Backend APIs
+        ↓
+PHASE 3
+Hospital Operations Overview
+        ↓
+PHASE 4
+Hospitals
+        ↓
+PHASE 5
+Bed Availability
+        ↓
+PHASE 6
+Hospital Capacity
+        ↓
+PHASE 7
+Emergency Department
+        ↓
+PHASE 8
+Patient Flow
+        ↓
+PHASE 9
+Resource Management
+        ↓
+PHASE 10
+Emergency & Ambulance
+        ↓
+PHASE 11
+Hospital Agent
+        ↓
+PHASE 12
+Traffic Agent ↔ Hospital Agent
+        ↓
+PHASE 13
+Unified Smart City Integration
+        ↓
+PHASE 14
+Testing + Performance + Research Metrics
+
+
+
+
+PHASE 1
+Hospital Department Foundation
+        ↓
+PHASE 2
+Hospital Database + Mumbai Hospital Data
+        ↓
+PHASE 3
+Hospital Route/API Layer
+        ↓
+PHASE 4
+Hospital Overview
+        ↓
+PHASE 5
+Hospitals
+        ↓
+PHASE 6
+Bed Availability
+        ↓
+PHASE 7
+Hospital Capacity
+        ↓
+PHASE 8
+Emergency Department
+        ↓
+PHASE 9
+Patient Flow
+        ↓
+PHASE 10
+Resource Management
+        ↓
+PHASE 11
+Emergency & Ambulance
+        ↓
+PHASE 12
+Hospital Agent
+        ↓
+PHASE 13
+Hospital Agent Predictions + Decisions
+        ↓
+PHASE 14
+Traffic Agent ↔ Hospital Agent
+        ↓
+PHASE 15
+Unified Dashboard Integration
+        ↓
+PHASE 16
+Testing + Validation
