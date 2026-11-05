@@ -2,7 +2,9 @@ import React from 'react'
 
 const LearnGit = () => {
   return (
-    <div>LearnGit</div>
+    <>
+    <h1>this is practicw message</h1>
+    </>
   )
 }
 
