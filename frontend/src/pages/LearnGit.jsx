@@ -3,7 +3,7 @@ import React from 'react'
 const LearnGit = () => {
   return (
     <>
-    <h1>this is practicw message</h1>
+    <h1>updated from github</h1>
     </>
   )
 }
